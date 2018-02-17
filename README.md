@@ -23,58 +23,58 @@
 
 1. 编写组件：在选项对象中增加 mixins: [propsync] 即可，如：
 
-```html
-<script>
-import propsync from 'vue-propsync'
-export default {
-  name: 'hello',
-  mixins: [propsync]
-}
-</script>
-```
-
-1. 调用组件：在调用组件的 templat 处，增加一个 v-model 来绑定数据，如：
-
-```html
-<modal v-model="isShow"></modal>
-<script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      isShow: false
-    }
+  ```html
+  <script>
+  import propsync from 'vue-propsync'
+  export default {
+   name: 'hello',
+   mixins: [propsync]
   }
-}
-</script>
-```
+  </script>
+  ```
 
-1. 子组件：如：
+2. 调用组件：在调用组件的 templat 处，增加一个 v-model 来绑定数据，如：
 
-```html
-<template>
-  <div class="modal" :value="value" v-show="sync_value">
-    <!-- 由于 v-model 一定要由 value 来接受传值，以上接受父组件数据为固定写法，复制粘贴即可，本插件将会为 value 创建一个副本 sync_value, 子组件需要绑定该变量 -->
-    <div class="close" @click="cancel">测试</div>
-  </div>
-</template>
-<script>
-import propsync from 'vue-propsync'
-export default {
-  name: 'hello',
-  mixins: [propsync],
-  props: {
-    value: {
-      type: Boolean,
-      default: false,
-      isSync: true // 需要开启双向绑定的一定要写这句话，默认不会将所有的 prop 开启双向绑定
-    }
-  },
-  methods: {
-    cancel () {
-      this.sync_value = false // 注意 props 是不能直接改变的，则需要改变本插件创建的副本即可
-    }
+  ```html
+  <modal v-model="isShow"></modal>
+  <script>
+  export default {
+   name: 'app',
+   data () {
+     return {
+       isShow: false
+     }
+   }
   }
-}
-</script>
-```
+  </script>
+  ```
+
+3. 子组件：如：
+
+  ```html
+  <template>
+   <div class="modal" :value="value" v-show="sync_value">
+     <!-- 由于 v-model 一定要由 value 来接受传值，以上接受父组件数据为固定写法，复制粘贴即可，本插件将会为 value 创建一个副本 sync_value, 子组件需要绑定该变量 -->
+     <div class="close" @click="cancel">测试</div>
+   </div>
+  </template>
+  <script>
+  import propsync from 'vue-propsync'
+  export default {
+   name: 'hello',
+   mixins: [propsync],
+   props: {
+     value: {
+       type: Boolean,
+       default: false,
+       isSync: true // 需要开启双向绑定的一定要写这句话，默认不会将所有的 prop 开启双向绑定
+     }
+   },
+   methods: {
+     cancel () {
+       this.sync_value = false // 注意 props 是不能直接改变的，则需要改变本插件创建的副本即可
+     }
+   }
+  }
+  </script>
+  ```
