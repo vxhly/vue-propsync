@@ -1,6 +1,6 @@
 # vue-propsync
 
-[![NPM version](https://img.shields.io/npm/v/vue-propsync.svg?style=flat-square)](https://vxhly.github.io/2016/08/flexbox-layout/) [![GitHub forks](https://img.shields.io/github/forks/vxhly/vue-propsync.svg)](https://github.com/vxhly/vue-propsync/network) [![GitHub stars](https://img.shields.io/github/stars/vxhly/vue-propsync.svg)](https://github.com/vxhly/vue-propsync/stargazers) [![NPM download](https://img.shields.io/npm/dm/vue-propsync.svg?style=flat-square)](https://npmjs.org/package/vue-propsync) [![GitHub license](https://img.shields.io/github/license/vxhly/vue-propsync.svg)](https://github.com/vxhly/vue-propsync/blob/master/LICENSE)
+[![NPM version](https://img.shields.io/npm/v/vue-propsync.svg?style=flat-square)](https://www.npmjs.com/package/vue-propsync) [![GitHub forks](https://img.shields.io/github/forks/vxhly/vue-propsync.svg)](https://github.com/vxhly/vue-propsync/network) [![GitHub stars](https://img.shields.io/github/stars/vxhly/vue-propsync.svg)](https://github.com/vxhly/vue-propsync/stargazers) [![NPM download](https://img.shields.io/npm/dm/vue-propsync.svg?style=flat-square)](https://npmjs.org/package/vue-propsync) [![GitHub license](https://img.shields.io/github/license/vxhly/vue-propsync.svg)](https://github.com/vxhly/vue-propsync/blob/master/LICENSE)
 
 > vue-propsync：vue 组件的混合对象，主要用于组件编写时混入调用。
 
@@ -27,8 +27,8 @@
   <script>
   import propsync from 'vue-propsync'
   export default {
-   name: 'hello',
-   mixins: [propsync]
+  name: 'hello',
+  mixins: [propsync]
   }
   </script>
   ```
@@ -39,12 +39,12 @@
   <modal v-model="isShow"></modal>
   <script>
   export default {
-   name: 'app',
-   data () {
-     return {
-       isShow: false
-     }
-   }
+  name: 'app',
+  data () {
+    return {
+      isShow: false
+    }
+  }
   }
   </script>
   ```
@@ -53,28 +53,28 @@
 
   ```html
   <template>
-   <div class="modal" :value="value" v-show="sync_value">
-     <!-- 由于 v-model 一定要由 value 来接受传值，以上接受父组件数据为固定写法，复制粘贴即可，本插件将会为 value 创建一个副本 sync_value, 子组件需要绑定该变量 -->
-     <div class="close" @click="cancel">测试</div>
-   </div>
+  <div class="modal" :value="value" v-show="sync_value">
+    <!-- 由于 v-model 一定要由 value 来接受传值，以上接受父组件数据为固定写法，复制粘贴即可，本插件将会为 value 创建一个副本 sync_value, 子组件需要绑定该变量 -->
+    <div class="close" @click="cancel">测试</div>
+  </div>
   </template>
   <script>
   import propsync from 'vue-propsync'
   export default {
-   name: 'hello',
-   mixins: [propsync],
-   props: {
-     value: {
-       type: Boolean,
-       default: false,
-       isSync: true // 需要开启双向绑定的一定要写这句话，默认不会将所有的 prop 开启双向绑定
-     }
-   },
-   methods: {
-     cancel () {
-       this.sync_value = false // 注意 props 是不能直接改变的，则需要改变本插件创建的副本即可
-     }
-   }
+  name: 'hello',
+  mixins: [propsync],
+  props: {
+    value: {
+      type: Boolean,
+      default: false,
+      isSync: true // 需要开启双向绑定的一定要写这句话，默认不会将所有的 prop 开启双向绑定
+    }
+  },
+  methods: {
+    cancel () {
+      this.sync_value = false // 注意 props 是不能直接改变的，则需要改变本插件创建的副本即可
+    }
+  }
   }
   </script>
   ```
