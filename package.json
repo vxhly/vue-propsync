@@ -1,0 +1,24 @@
+{
+  "name": "vue-propsync",
+  "version": "0.1.0",
+  "description": "vue-propsync：vue 组件的混合对象，主要用于组件编写时混入调用。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vxhly/vue-propsync.git"
+  },
+  "keywords": [
+    "vuejs",
+    "sync",
+    "propsync"
+  ],
+  "author": "vxhly <pengchengou@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vxhly/vue-propsync/issues"
+  },
+  "homepage": "https://github.com/vxhly/vue-propsync#readme"
+}
