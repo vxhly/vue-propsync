@@ -1,6 +1,6 @@
 {
   "name": "vue-propsync",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "vue-propsync：vue 组件的混合对象，主要用于组件编写时混入调用。",
   "main": "index.js",
   "scripts": {

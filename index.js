@@ -4,7 +4,7 @@
  * @Email:  pengchengou@gmail.com
  * @Filename: vue-propsync.js
  * @Last modified by:   vxhly
- * @Last modified time: 2018-02-17 11:29:05 pm
+ * @Last modified time: 2018-02-28 05:35:45 pm
  * @License: MIT
  */
 
@@ -70,6 +70,10 @@
   *   }
   *   </script>
   */
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+
 const isSync = 'isSync' // 开启 sync props 双向绑定配置项
 
 /**
@@ -85,7 +89,7 @@ const getDataName = (propName) => {
   return `sync_${propName}`
 }
 
-export default {
+const propsync = {
   data () {
     const data = {}
     const propsKeys = Object.keys((this.$options.props) || {}) // 获取当前组件的所有 props
@@ -126,3 +130,4 @@ export default {
     })
   }
 }
+module.exports = propsync
